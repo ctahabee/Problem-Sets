@@ -1,0 +1,47 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+```{r}
+library(ggplot2);library(ggthemes);library(gridExtra)  # For plots 
+library(quantmod);library(xts);library(zoo) # For using xts class objects
+library(forecast) # Set of forecasting functions
+library(fpp); library(fpp2) # Datasets from Forecasting text by Rob Hyndman
+library(tseries) # for a statistical test
+library(dplyr) # Data wrangling
+```
+
+```{r}
+data(package = 'fpp2')
+palantir = getSymbols(Symbols = 'PLTR',auto.assign = F)
+autoplot(palantir[,4])
+```
+
+```{r}
+unemployment = getSymbols(Symbols = 'UNRATE', src = 'FRED', auto.assign = F)
+autoplot(unemployment)
+```
+
+```{r}
+autoplot(uschange[,5])
+class(arrivals[,1])
+```
+
+```{r}
+AirPassengers %>%
+  autoplot()
+```
+
+```{r}
+lag(as.vector(arrivals[,4]))
+```
+
+```{r}
+ggAcf(AirPassengers,lag.max = 12,plot = T)
+```
+
+```{r}
+train = window(ausbeer, end=c(1999,4))
+test = window(ausbeer, start=c(2000,1))
+```
+
