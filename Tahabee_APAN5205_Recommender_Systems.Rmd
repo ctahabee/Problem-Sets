@@ -222,7 +222,7 @@ pred_ubcf2 = predict(recom3,newdata = getData(es,'known'),type='ratings')
 accuracy_ubcf2 = calcPredictionAccuracy(x = pred_ubcf2,data = getData(es,'unknown')); accuracy_ubcf2
 ```
 
-### 8. RMSE for popularity-filtering recommender?
+### 8. RMSE for popularity-based filtering recommender?
 
 ```{r}
 set.seed(1031)
